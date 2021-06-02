@@ -7,7 +7,7 @@
 
 
 #include <stdio.h>
-#include "xarm/core/os/thread.h"
+#include "xarm/core/os/bak/thread.h"
 
 #define PRINT_ERR printf
 

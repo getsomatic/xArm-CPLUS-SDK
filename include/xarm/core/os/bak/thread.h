@@ -4,7 +4,7 @@
  *
  * Author: Jimy Zhang <jimy92@163.com>
  ============================================================================*/
- /*#ifndef CORE_LINUX_THREAD_H_
+ #ifndef CORE_LINUX_THREAD_H_
  #define CORE_LINUX_THREAD_H_
 
  #include <pthread.h>
@@ -15,7 +15,6 @@
  pthread_t thread_init(fun_point_t fun_point, void *arg);
 
  #endif
- */
 
 #ifndef THREAD_H_
 #define THREAD_H_
