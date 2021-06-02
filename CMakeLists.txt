@@ -1,13 +1,16 @@
 cmake_minimum_required(VERSION 3.5)
 project(xarm_sdk)
 set(CMAKE_CXX_STANDARD 17)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -fPIC")
 
 find_package(ament_cmake REQUIRED)
 
 file(GLOB_RECURSE CC_SRC ${PROJECT_SOURCE_DIR}/*.cc )
 add_library (${PROJECT_NAME} ${CC_SRC})
-target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
+target_include_directories(${PROJECT_NAME} PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+        )
 
 add_executable(main main.cpp)
 target_link_libraries(main ${PROJECT_NAME})
@@ -21,5 +24,10 @@ install(
         INCLUDES DESTINATION include
 )
 
+install(DIRECTORY include/
+        DESTINATION include
+        )
 
+ament_export_libraries(${PROJECT_NAME})
+ament_export_include_directories(include)
 ament_package()
