@@ -594,8 +594,12 @@ void XArmAPI::_recv_report_data(void) {
 	bool need_reconnect = false;
 
     bool reported = is_reported();
-
-	while (is_connected()) {
+    while (true) {
+        if (!is_connected()) {
+            sleep_milliseconds(10);
+            continue;
+        }
+	//while (is_connected()) {
 		sleep_milliseconds(1);
 		if (connect_fail_count > 5) break;
 		if (need_reconnect || !is_reported()) {
