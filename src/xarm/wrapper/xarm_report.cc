@@ -601,7 +601,7 @@ void XArmAPI::_recv_report_data(void) {
         }
 	//while (is_connected()) {
 		sleep_milliseconds(1);
-		if (connect_fail_count > 5) break;
+		//if (connect_fail_count > 5) break;
 		if (need_reconnect || !is_reported()) {
 			if (need_reconnect)
 				printf("report data exception, try reconnect.\n");

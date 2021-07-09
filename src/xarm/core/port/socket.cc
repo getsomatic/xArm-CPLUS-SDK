@@ -135,6 +135,6 @@ int SocketPort::write_frame(unsigned char *data, int len) {
 
 void SocketPort::close_port(void) {
 	state_ = -1;
-	flush();
+	//flush();
 	close(fp_);
 }
