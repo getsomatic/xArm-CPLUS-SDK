@@ -3,8 +3,6 @@ project(xarm_sdk)
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -fPIC")
 
-find_package(ament_cmake REQUIRED)
-
 file(GLOB_RECURSE CC_SRC ${PROJECT_SOURCE_DIR}/*.cc )
 add_library (${PROJECT_NAME} ${CC_SRC})
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -27,7 +25,3 @@ install(
 install(DIRECTORY include/
         DESTINATION include
         )
-
-ament_export_libraries(${PROJECT_NAME})
-ament_export_include_directories(include)
-ament_package()
