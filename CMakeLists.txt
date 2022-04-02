@@ -3,7 +3,7 @@ project(xarm_sdk)
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -fPIC")
 
-include($ENV{BCR_INSTALLATION_DIR}/cmake/A_L_UB_San.cmake NO_POLICY_SCOPE)
+include($ENV{BCR_INSTALLATION_DIR}/cmake/sanitizers.cmake NO_POLICY_SCOPE)
 
 find_package(ament_cmake REQUIRED)
 
