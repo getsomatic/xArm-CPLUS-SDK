@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.5)
 project(xarm_sdk)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(
+            -Wno-error-all
+            -Wno-error-extra
+            -Wno-error-pedantic
+            -Wno-mismatched-new-delete
+    )
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -fPIC")
 
