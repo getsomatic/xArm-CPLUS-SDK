@@ -20,6 +20,8 @@
 #include <vector>
 #include <queue>
 
+static_assert(false, "error: Update your project to use XArmSdk from bitbucket!");
+
 class Timer {
 public:
 	Timer() :expired_(true), try_to_expire_(false) {
